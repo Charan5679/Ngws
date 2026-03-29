@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Get Well Soon Nishi 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: #fff9f4;
+  color: #3a2c35;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 28px 80px;
+  background: linear-gradient(170deg, #fff0f6 0%, #fff9f4 50%, #f0f8ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.petals { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.petal {
+  position: absolute;
+  border-radius: 50% 0 50% 0;
+  opacity: 0.22;
+  animation: petalFall linear infinite;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(-40px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.22; }
+  90%  { opacity: 0.22; }
+  100% { transform: translateY(110vh) rotate(200deg); opacity: 0; }
+}
+
+.badge {
+  background: #fde8ef;
+  color: #e07fa0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1.5px solid #f4a7b9;
+  margin-bottom: 24px;
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.1;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+.hero h1 em { color: #e07fa0; font-style: italic; }
+
+.hero-sub {
+  font-size: 16px;
+  color: #a07080;
+  margin-top: 18px;
+  line-height: 1.7;
+  font-weight: 300;
+  animation: fadeUp 0.9s ease 0.2s both;
+}
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  animation: bob 2s ease infinite;
+  color: #d4a0b0;
+}
+@keyframes bob {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(7px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section { padding: 64px 20px; }
+.sec-tag {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c09090;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+.journey { position: relative; padding-left: 52px; }
+.j-line {
+  position: absolute;
+  left: 20px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #f4a7b9, #7ec8e3, #5fc9a0);
+  border-radius: 2px;
+}
+
+.step {
+  position: relative;
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.step.vis { opacity: 1; transform: translateX(0); }
+
+.step-dot {
+  position: absolute;
+  left: -40px;
+  top: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #f4a7b9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 0 0 5px rgba(244,167,185,0.15);
+}
+.step.mid   .step-dot { border-color: #7ec8e3; box-shadow: 0 0 0 5px rgba(126,200,227,0.15); }
+.step.happy .step-dot { border-color: #5fc9a0; box-shadow: 0 0 0 5px rgba(95,201,160,0.15); }
+
+.step-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 20px;
+  border: 1.5px solid rgba(244,167,185,0.25);
+  box-shadow: 0 4px 20px rgba(200,120,140,0.07);
+}
+.step.mid   .step-card { border-color: rgba(126,200,227,0.3); }
+.step.happy .step-card { border-color: rgba(95,201,160,0.3); }
+
+.step-emoji { font-size: 28px; display: block; margin-bottom: 8px; }
+.step-phase {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d07090;
+  margin-bottom: 5px;
+}
+.step.mid   .step-phase { color: #5090b8; }
+.step.happy .step-phase { color: #20906a; }
+
+.step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.step-text { font-size: 14px; color: #a07080; line-height: 1.7; }
+.step.mid   .step-text { color: #608090; }
+.step.happy .step-text { color: #408070; }
+
+.ideas-section {
+  background: linear-gradient(160deg, #fff5f9 0%, #f3f0ff 100%);
+  padding: 64px 20px;
+}
+.ideas-list { display: flex; flex-direction: column; gap: 16px; }
+
+.idea {
+  background: #fff;
+  border-radius: 22px;
+  padding: 22px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 2px 16px rgba(180,130,160,0.07);
+}
+.idea.vis { opacity: 1; transform: translateY(0); }
+
+.idea-icon { font-size: 36px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+.idea-pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 6px;
+}
+.i1 { border: 1.5px solid rgba(244,167,185,0.4); }
+.i1 .idea-pill { background: #fde8ef; color: #d06080; }
+.i2 { border: 1.5px solid rgba(197,232,247,0.5); }
+.i2 .idea-pill { background: #e6f5fc; color: #2a80b0; }
+.i3 { border: 1.5px solid rgba(181,232,208,0.4); }
+.i3 .idea-pill { background: #e2f7ef; color: #208060; }
+.i4 { border: 1.5px solid rgba(255,233,138,0.5); }
+.i4 .idea-pill { background: #fffae0; color: #a07010; }
+.i5 { border: 1.5px solid rgba(216,201,240,0.5); }
+.i5 .idea-pill { background: #f2eeff; color: #6040b8; }
+
+.idea-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.idea-desc { font-size: 13px; color: #a07080; line-height: 1.65; }
+
+.closing {
+  padding: 80px 28px 100px;
+  text-align: center;
+  background: linear-gradient(170deg, #fff0f6 0%, #fff9f4 100%);
+  position: relative;
+  overflow: hidden;
+}
+.heart {
+  font-size: 80px;
+  line-height: 1;
+  display: block;
+  margin-bottom: 28px;
+  animation: hb 1.6s ease infinite;
+}
+@keyframes hb {
+  0%,100% { transform: scale(1); }
+  15%      { transform: scale(1.14); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.07); }
+}
+.closing h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+.closing p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #a07080;
+  line-height: 1.8;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.conf {
+  position: absolute;
+  pointer-events: none;
+  animation: confFly linear infinite;
+  opacity: 0;
+}
+@keyframes confFly {
+  0%   { transform: translateY(20px) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.75; }
+  92%  { opacity: 0.75; }
+  100% { transform: translateY(-70vh) rotate(400deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="petals" id="petals"></div>
+  <div class="badge">made just for you 🌸</div>
+  <h1>Get well<br>soon,<br><em>Nishi</em> ✨</h1>
+  <p class="hero-sub">You're sick right now and that's okay — your road from sniffles to sunshine starts here.</p>
+  <div class="scroll-arrow">↓</div>
+</section>
+
+<section class="section" style="background:#fff9f4;">
+  <p class="sec-tag">Your journey</p>
+  <h2 class="sec-title">Sick days →<br>happy days 🌈</h2>
+  <div class="journey">
+    <div class="j-line"></div>
+
+    <div class="step sick">
+      <div class="step-dot">🤒</div>
+      <div class="step-card">
+        <span class="step-emoji">🤒</span>
+        <div class="step-phase">Right now</div>
+        <div class="step-title">The sniffly start</div>
+        <p class="step-text">Runny nose, fever, wrapped in blankets. Your body is fighting so hard for you. Rest is doing the work, even when it doesn't feel like it.</p>
+      </div>
+    </div>
+
+    <div class="step mid">
+      <div class="step-dot">🍵</div>
+      <div class="step-card">
+        <span class="step-emoji">🍵</span>
+        <div class="step-phase">Day 1–2</div>
+        <div class="step-title">Tea & cozy mode</div>
+        <p class="step-text">Warm soup, your favourite show on loop, cozy socks. The worst is passing — the fever is finally deciding to behave.</p>
+      </div>
+    </div>
+
+    <div class="step mid">
+      <div class="step-dot">🌤️</div>
+      <div class="step-card">
+        <span class="step-emoji">🌤️</span>
+        <div class="step-phase">Day 2–3</div>
+        <div class="step-title">First rays appear</div>
+        <p class="step-text">You wake up and the nose is slightly less dramatic. You catch yourself humming something. That means progress — the good kind.</p>
+      </div>
+    </div>
+
+    <div class="step happy">
+      <div class="step-dot">🌸</div>
+      <div class="step-card">
+        <span class="step-emoji">🌸</span>
+        <div class="step-phase">Day 3–4</div>
+        <div class="step-title">Blooming again</div>
+        <p class="step-text">Appetite back, tissues retired. You're laughing at dumb things again. The world is looking brighter — and so are you.</p>
+      </div>
+    </div>
+
+    <div class="step happy">
+      <div class="step-dot">🎉</div>
+      <div class="step-card">
+        <span class="step-emoji">🎉</span>
+        <div class="step-phase">Coming very soon</div>
+        <div class="step-title">Full Nishi mode</div>
+        <p class="step-text">100% yourself again — bright, warm, wonderful. That day is on its way. And it's going to feel SO good.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ideas-section">
+  <p class="sec-tag">Healing toolkit</p>
+  <h2 class="sec-title">5 things to do<br>while you rest 💌</h2>
+  <div class="ideas-list">
+
+    <div class="idea i1">
+      <span class="idea-icon">🛁</span>
+      <div>
+        <span class="idea-pill">Self-care</span>
+        <div class="idea-title">Steam + eucalyptus</div>
+        <p class="idea-desc">Run hot water, drop in eucalyptus oil, breathe deep. That blocked nose doesn't stand a chance.</p>
+      </div>
+    </div>
+
+    <div class="idea i2">
+      <span class="idea-icon">📺</span>
+      <div>
+        <span class="idea-pill">Comfort</span>
+        <div class="idea-title">Rewatch your comfort show</div>
+        <p class="idea-desc">The one you've seen 10 times already. Blanket on, snacks ready, brain switched off.</p>
+      </div>
+    </div>
+
+    <div class="idea i3">
+      <span class="idea-icon">🍯</span>
+      <div>
+        <span class="idea-pill">Nutrition</span>
+        <div class="idea-title">Ginger honey lemon tea</div>
+        <p class="idea-desc">Fresh ginger + lemon + honey + hot water. Steep 5 mins. Tastes exactly like getting better feels.</p>
+      </div>
+    </div>
+
+    <div class="idea i4">
+      <span class="idea-icon">📖</span>
+      <div>
+        <span class="idea-pill">Slow living</span>
+        <div class="idea-title">Read something light</div>
+        <p class="idea-desc">A cozy book, a magazine, your fave blog. Nothing heavy — just gentle words while your body heals.</p>
+      </div>
+    </div>
+
+    <div class="idea i5">
+      <span class="idea-icon">🎵</span>
+      <div>
+        <span class="idea-pill">Mood lift</span>
+        <div class="idea-title">Build a getting-better playlist</div>
+        <p class="idea-desc">Songs that feel like sunshine. Add one every hour. By the end you'll have your best playlist ever.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="closing" id="closing">
+  <span class="heart">🫶</span>
+  <h2>You've got<br>this, Nishi.</h2>
+  <p>"Get well soon — the world is a little less bright without you in full colour."</p>
+</section>
+
+<script>
+const pw = document.getElementById('petals');
+const pc = ['#f4a7b9','#ffd6b0','#c5e8f7','#d8c9f0','#b5e8d0','#ffe98a'];
+for (let i = 0; i < 20; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  const s = 7 + Math.random() * 15;
+  p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${pc[Math.floor(Math.random()*pc.length)]};animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*14}s;`;
+  pw.appendChild(p);
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 90);
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.step, .idea').forEach(el => io.observe(el));
+
+let fired = false;
+const cc = ['#f4a7b9','#ffe98a','#b5e8d0','#c5e8f7','#d8c9f0','#ffd6b0','#e07fa0'];
+const cio = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting && !fired) {
+    fired = true;
+    const cl = document.getElementById('closing');
+    for (let i = 0; i < 30; i++) {
+      const d = document.createElement('div');
+      d.className = 'conf';
+      const s = 5 + Math.random() * 8;
+      d.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:10%;background:${cc[Math.floor(Math.random()*cc.length)]};border-radius:${Math.random()>0.4?'50%':'3px'};animation-duration:${3+Math.random()*4}s;animation-delay:${Math.random()*3}s;`;
+      cl.appendChild(d);
+    }
+  }
+}, { threshold: 0.3 });
+cio.observe(document.getElementById('closing'));
+</script>
+</body>
+</html>
